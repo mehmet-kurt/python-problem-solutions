@@ -47,6 +47,21 @@ def main():
                 if guess == word:
                     print(f"Well done!! You find the word:{word}")
                     is_running = False
+                else:
+                    wrong_guesses+=1
+                    print("Wrong word guess")
+                    print("***************\n")
+
+                    for x in art_collc[wrong_guesses]:
+                        print(x)
+                    print()
+                    print("***************")
+
+                for i in word:
+                    if i in guesses:
+                        print(i,end=" ")
+                    else:
+                        print("__",end=" ")
             
             elif guess in word:
                 print(f"You made a correct guess: {guess}")
@@ -59,6 +74,7 @@ def main():
                         print("__",end=" ")
         
             else:
+                guesses.append(guess)
                 wrong_guesses+=1
                 print(f"{guess} is a wrong guess! Try again.")
                 print("***************\n")
